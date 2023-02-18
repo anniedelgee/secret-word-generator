@@ -88,6 +88,35 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// Function to prompt user for password options
+function getPasswordOptions() {
+
+}
+
+// Function for getting a random element from an array
+function getRandom(arr) {
+
+}
+
+// Function to generate password with user input
+function generatePassword() {
+
+}
+
+// Get references to the #generate element
+var generateBtn = document.querySelector('#generate');
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector('#password');
+
+  passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
+
 //given that i need a new password
 //when i click generate password
 //then a prompt tells me about password length
@@ -107,63 +136,57 @@ var upperCasedCharacters = [
 //      * Numeric
 //      * Special characters ($@%&*, etc)
 
+// Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector('#password');
 
-
-
-
+//   passwordText.value = password;
+// }
 // Function for getting a random element from an array
   //make new variable to hold all characters
   //concatenate all arrays for use in password
-var allCharacters= specialCharacters + numericCharacters + upperCasedCharacters + lowerCasedCharacters;
-console.log(allCharacters);
+// var allCharacters= specialCharacters + numericCharacters + upperCasedCharacters + lowerCasedCharacters;
+// console.log(allCharacters);
 
-  //get random elements so password is between 10<64 elements long.
-function getRandom(allCharacters) {
-  let secretWord= Math.random(allCharacters.length);
-}// secret word variable gives input parameters for followng function, can be any characters of correct length, fro any character type so making an array combines all data efficiently)
+  //get random elements so password is between 10<64 elements long. atleast one charater type will be selected from looping through array however many times is necessary
+// function getRandom(allCharacters) {
+//   let secretWord= Math.random(allCharacters.length);
+// }// secret word variable gives input parameters for followng function, can be any characters of correct length, fro any character type so making an array combines all data efficiently)
 
-// Function to generate password with user input.. user input?
- // Function to prompt user for password options
-function generatePassword() {
-  prompt ('are you ready to make a secret word?');
-  prompt ('secret word must have between 10 & 64 characters');
-  prompt ('secret word must have upper & lower case, numerical and special values');
+// function generatePassword() {
+//   let userInput= prompt ('how many characters do you want your secret word to be? select between 10 & 64'); 
+//     prompt ('secret word must have uppercase characters');
+//     prompt ('secret word must have lowercase characters');
+//     prompt ('secret word must have numerical characters');
+//     prompt ('secret word must have special characters');
+//   } 
+//   generatePassword(userInput);{
+//     if(i<=10 && i > 64){
+//       console.log(userInput);
+
+//     }
+//   }
+
+  //get length of password. take input from user response
+  
+  // return secretWord;
   // console.log('button has been CLICKED');
-  return 'secret word will magically appear here';
-  // 1. prompt user for password critera
-  function getPasswordOptions(){
-  }  //  a password length 10 <64
-  //  b lowercse, uppercase, numeric, special characters
+  // function getPasswordOptions(){
+  // }  
+
   // 2. Validate input
   // 3. generate password based on critera
   // 4. Display password on page
 
-}
+
+
+
 
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+// var generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+// Add event listener to generate button.. done already?
+// generateBtn.addEventListener('click', writePassword);
 
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
-
-
-//* Generate a password when the button is clicked
-//  * Present a series of prompts for password criteria
-//    * Length of password
-//      * At least 10 characters but no more than 64.
-//    * Character types
-//      * Lowercase
-//      * Uppercase
-//      * Numeric
-//      * Special characters ($@%&*, etc)
-//  * Code should validate for each input and at least one character type should be selected
-//  * Once prompts are answered then the password should be generated and displayed in an alert or written to the page
 
