@@ -89,14 +89,56 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
-function getPasswordOptions() {
+//
 
-}
+let password=[];
+
+
+
+// function getPasswordOptions() {
+  //get length of password
+  let passwordLength= prompt(
+    "Choose between 10 -64 characters for your secret word")
+      if (passwordLength < 10 || passwordLength > 64){
+      alert( "your secret word does not fit within our range, try again");{
+        let passwordLength= prompt(
+          "Choose between 10 -64 characters for your secret word")
+      }
+    }
+    //represent characters as variables to get users preferences
+    let preferLow= confirm("What character types do you prefer (select atleast 1)?: lowercase");
+    let preferUpper= confirm("What character types do you prefer (select atleast 1)?: uppercase");
+    let preferNum= confirm("What character types do you prefer (select atleast 1)?: numerical");
+    let preferSpesh= confirm("What character types do you prefer (select atleast 1)?: 'special' characters");
+      if (!preferLow && !preferUpper && !preferNum && !preferSpesh){
+        alert("wELLLLLLL, you have to choose atLEAST 1 charactertype, try another time");{
+          preferLow= confirm("What character types do you prefer (select atleast 1)?: lowercase");
+          preferUpper= confirm("What character types do you prefer (select atleast 1)?: uppercase");
+          preferSpesh= confirm("What character types do you prefer (select atleast 1)?: 'special' characters");
+        }
+      }
+      //use confirmed user preferences to create concatenated array of characters to randomly iterate through. 
+      let userPreferences= [];
+      if (preferLow){
+        userPreferences= userPreferences.concat(lowerCasedCharacters);
+      }
+      if (preferUpper){
+        userPreferences= userPreferences.concat(upperCasedCharacters);
+      }
+      if (preferNum){
+        userPreferences= userPreferences.concat(numericCharacters);
+      }
+      if (preferSpesh){
+        userPreferences= userPreferences.concat(specialCharacters);
+      }
+      console.log(userPreferences);
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
 }
+//get random element from arrays selected in prompts?
+
 
 // Function to generate password with user input
 function generatePassword() {
@@ -116,6 +158,13 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+
+
+
+
+
+
 
 //given that i need a new password
 //when i click generate password
