@@ -88,154 +88,122 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-//
+let userPreferences= [];
+let passwordLength="";
 
-let password=[];
-
-
-
-// function getPasswordOptions() {
-  //get length of password
-  let passwordLength= prompt(
-    "Choose between 10 -64 characters for your secret word")
+// defining passwordlength global variable 
+  let passswordLength= prompt(
+    "how many characterz can you store in your head one time? between 10 & 64 plz.");
       if (passwordLength < 10 || passwordLength > 64){
-      alert( "your secret word does not fit within our range, try again");{
-        let passwordLength= prompt(
-          "Choose between 10 -64 characters for your secret word")
+         alert("not allowed, choose between 10 to 64 characters, mate");
+          {let passwordLength= prompt("again, this time between 10 -64 characterz");}
       }
+  //defining varibales to use in userPreferences if statement to get second global variable
+  let preferLow= confirm("What character types do you prefer? (select atleast 1): lowercase");
+  let preferUpper= confirm("What character types do you prefer? (select atleast 1): uppercase");
+  let preferNum= confirm("What character types do you prefer? (select atleast 1): numerical");
+  let preferSpesh= confirm("What character types do you prefer? (select atleast 1): 'special' characters");
+    if (!preferLow && !preferUpper && !preferNum && !preferSpesh){
+          alert("wELLLLLLL, you have to choose atLEAST 1 charactertype, let's go again");{
+            preferLow= confirm("What character types do you prefer? (select atleast 1): lowercase");
+            preferUpper= confirm("What character types do you prefer?(select atleast 1): uppercase");
+            preferSpesh= confirm("What character types do you prefer? (select atleast 1): 'special' characters");
     }
-    //represent characters as variables to get users preferences
-    let preferLow= confirm("What character types do you prefer (select atleast 1)?: lowercase");
-    let preferUpper= confirm("What character types do you prefer (select atleast 1)?: uppercase");
-    let preferNum= confirm("What character types do you prefer (select atleast 1)?: numerical");
-    let preferSpesh= confirm("What character types do you prefer (select atleast 1)?: 'special' characters");
-      if (!preferLow && !preferUpper && !preferNum && !preferSpesh){
-        alert("wELLLLLLL, you have to choose atLEAST 1 charactertype, try another time");{
-          preferLow= confirm("What character types do you prefer (select atleast 1)?: lowercase");
-          preferUpper= confirm("What character types do you prefer (select atleast 1)?: uppercase");
-          preferSpesh= confirm("What character types do you prefer (select atleast 1)?: 'special' characters");
-        }
+   }
+   //define userpreferences variable by combining all the preferences taken from confirm messages.
+   function getOptions(){
+    if (preferLow){
+      userPreferences= userPreferences.concat(lowerCasedCharacters);
+    }
+     if (preferUpper){
+      userPreferences= userPreferences.concat(upperCasedCharacters);
+    }
+     if (preferNum){
+      userPreferences= userPreferences.concat(numericCharacters);
+    }
+    if (preferSpesh){
+      userPreferences= userPreferences.concat(specialCharacters);
+    }
+    }
+    //function to combine prefrences recorded, with passwordlength and create final array from iterating through userpreferences, constrained by passwordlegnth.
+    let finalPassword=[]
+    function generatePassword(){
+      for (var i= 0; i < passwordLength; i++ ){
+        let finalSelection= userPreferences(Math.floor(Math.random(userPreferences)));
+        finalPassword.push(finalSelection)
       }
-      //use confirmed user preferences to create concatenated array of characters to randomly iterate through. 
-      let userPreferences= [];
-      if (preferLow){
-        userPreferences= userPreferences.concat(lowerCasedCharacters);
-      }
-      if (preferUpper){
-        userPreferences= userPreferences.concat(upperCasedCharacters);
-      }
-      if (preferNum){
-        userPreferences= userPreferences.concat(numericCharacters);
-      }
-      if (preferSpesh){
-        userPreferences= userPreferences.concat(specialCharacters);
-      }
-      console.log(userPreferences);
+      return finalPassword.join("");
 
-// Function for getting a random element from an array
-function getRandom(arr) {
+    }
 
-}
-//get random element from arrays selected in prompts?
+// global varibales declared, so function has something to fill
+// let passwordLength="";
+// let userPreferences= [];
+// // let passwordLength=""
+// // let secretWord= userPreferences * passwordLength;
 
+// // function generatePassword 
+// // var topOfTopSecretWord= []
+// // let passwordLength=parseInt(passwordLength)
 
-// Function to generate password with user input
-function generatePassword() {
-
-}
-
+// // Function to prompt user for password options
+// // function getPreferences() {
+//   //get length of password
+//   let passwordLength= prompt(
+//     "Choose between 10 - 64 characters for your secret word")
+//       if (passwordLength < 10 || passwordLength > 64){
+//       alert( "your secret word does not fit within our range, try again");
+//         let passwordLength= prompt( "Choose between 10 - 64 characters for your secret word")
+//       // generatePassword()
+//     }
+//     //represent characters as variables to get users preferences
+//     let preferLow= confirm("What character types do you prefer? (select atleast 1): lowercase");
+//     let preferUpper= confirm("What character types do you prefer? (select atleast 1): uppercase");
+//     let preferNum= confirm("What character types do you prefer? (select atleast 1): numerical");
+//     let preferSpesh= confirm("What character types do you prefer? (select atleast 1): 'special' characters");
+//       if (!preferLow && !preferUpper && !preferNum && !preferSpesh){
+//         alert("wELLLLLLL, you have to choose atLEAST 1 charactertype, let's go again");{
+//           preferLow= confirm("What character types do you prefer? (select atleast 1): lowercase");
+//           preferUpper= confirm("What character types do you prefer?(select atleast 1): uppercase");
+//           preferSpesh= confirm("What character types do you prefer? (select atleast 1): 'special' characters");
+//         }
+//       //use confirmed user preferences to create concatenated array of characters to randomly iterate through. 
+//       let userPreferences= [];
+//       if (preferLow){
+//         userPreferences= userPreferences.concat(lowerCasedCharacters);
+//       }
+//       if (preferUpper){
+//         userPreferences= userPreferences.concat(upperCasedCharacters);
+//       }
+//       if (preferNum){
+//         userPreferences= userPreferences.concat(numericCharacters);
+//       }
+//       if (preferSpesh){
+//         userPreferences= userPreferences.concat(specialCharacters);
+//       }
+//     }
+//     // console.log(userPreferences);
+//   // }
+//   // generatePassword();
+//   // randomly iterate through concatenated array.
+//   let topOfTopSecretWord = []
+//   function generatePassword(){
+//     for (var i=0; i< passwordLength; i++){
+//       let finalCharacters= userPreferences[Math.floor(Math.random()* userPreferences.length)];
+//         topOfTopSecretWord.push(finalCharacters);
+//       }
+//       return topOfTopSecretWord.join("");
+//     }
+// //        //string that joins elements in array into a single string without commas etc.
+  
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
-// Write password to the #password input
+// // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
-
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
-
-
-
-
-
-
-
-
-//given that i need a new password
-//when i click generate password
-//then a prompt tells me about password length
-//when i click ok another prompt appears
-//then the prompt tells me about charcaters
-//when i click ok 
-//then the gnerator produces a password
-
-
-
-// * Present a series of prompts for password criteria
-//    * Length of password
-//      * At least 10 characters but no more than 64.
-//    * Character types
-//      * Lowercase
-//      * Uppercase
-//      * Numeric
-//      * Special characters ($@%&*, etc)
-
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector('#password');
-
-//   passwordText.value = password;
-// }
-// Function for getting a random element from an array
-  //make new variable to hold all characters
-  //concatenate all arrays for use in password
-// var allCharacters= specialCharacters + numericCharacters + upperCasedCharacters + lowerCasedCharacters;
-// console.log(allCharacters);
-
-  //get random elements so password is between 10<64 elements long. atleast one charater type will be selected from looping through array however many times is necessary
-// function getRandom(allCharacters) {
-//   let secretWord= Math.random(allCharacters.length);
-// }// secret word variable gives input parameters for followng function, can be any characters of correct length, fro any character type so making an array combines all data efficiently)
-
-// function generatePassword() {
-//   let userInput= prompt ('how many characters do you want your secret word to be? select between 10 & 64'); 
-//     prompt ('secret word must have uppercase characters');
-//     prompt ('secret word must have lowercase characters');
-//     prompt ('secret word must have numerical characters');
-//     prompt ('secret word must have special characters');
-//   } 
-//   generatePassword(userInput);{
-//     if(i<=10 && i > 64){
-//       console.log(userInput);
-
-//     }
-//   }
-
-  //get length of password. take input from user response
-  
-  // return secretWord;
-  // console.log('button has been CLICKED');
-  // function getPasswordOptions(){
-  // }  
-
-  // 2. Validate input
-  // 3. generate password based on critera
-  // 4. Display password on page
-
-
-
-
-
-// Get references to the #generate element
-// var generateBtn = document.querySelector('#generate');
-
-// Add event listener to generate button.. done already?
-// generateBtn.addEventListener('click', writePassword);
-
-
+generateBtn.addEventListener('click', writePassword)
