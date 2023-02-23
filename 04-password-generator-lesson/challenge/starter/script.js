@@ -88,6 +88,7 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
 //global variables
 let userPreferences= [];
 // let passwordLength="";
@@ -104,7 +105,7 @@ let password=[]
         let passwordLength= prompt("again, this time between 10 -64 characterz");
       }
     // }
-      function getPreferences(){
+      // function getPreferences(){
   //defining varibales to use in userPreferences if statement to get second global variable
   //preferencesregarding each datatype are then passed into the concnatenated array r overall userPrerferences 
   let preferLow= confirm("What character types do you prefer? (select atleast 1): lowercase");
@@ -133,23 +134,25 @@ let password=[]
     if (preferSpesh){
       userPreferences= userPreferences.concat(specialCharacters);
     }
-  }
+  // }
 // }
+
+  //function for  looping through array to form final randomly generated password to display on screen
+  function getRandom(arr){
+    return arr [Math.floor(Math.random()*arr.length)]
+  }
+  
 function generatePassword(){
   let possiblePassword= userPreferences.passwordLength;
   // let openOptions= getPreferences();
   //for loop to iterate randomly through userpreferences, constrained by passwordlegnth.
     for (var i= 0; i < possiblePassword; i++ ){
       let randomSelection= getRandom(possiblePassword);
-      password.push(randomSelection);
+      let password= password.push(randomSelection);
     }
     return password.join(" ");
 }
 
-  //function for  loping through array to form final randomly generated password to display on screen
-function getRandom(arr){
-  return arr [Math.floor(Math.random()*arr.length)]
-}
 
   // let openOptions= getPreferences();
   //   //for loop to iterate randomly through userpreferences, constrained by passwordlegnth.
@@ -169,8 +172,8 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
   passwordText.value = password;
 }
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword)
+// // Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
 
 // global varibales declared, so function has something to fill
 // let passwordLength="";
