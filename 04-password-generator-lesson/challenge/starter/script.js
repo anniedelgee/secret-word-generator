@@ -88,17 +88,25 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+//global variables
 let userPreferences= [];
-let passwordLength="";
+// let passwordLength="";
+let password=[]
 
+
+// function generatePassword(){
 // defining passwordlength global variable 
-  let passswordLength= prompt(
+// function getLength(){
+  let passwordLength= prompt(
     "how many characterz can you store in your head one time? between 10 & 64 plz.");
       if (passwordLength < 10 || passwordLength > 64){
          alert("not allowed, choose between 10 to 64 characters, mate");
-          {let passwordLength= prompt("again, this time between 10 -64 characterz");}
+        let passwordLength= prompt("again, this time between 10 -64 characterz");
       }
+    // }
+      function getPreferences(){
   //defining varibales to use in userPreferences if statement to get second global variable
+  //preferencesregarding each datatype are then passed into the concnatenated array r overall userPrerferences 
   let preferLow= confirm("What character types do you prefer? (select atleast 1): lowercase");
   let preferUpper= confirm("What character types do you prefer? (select atleast 1): uppercase");
   let preferNum= confirm("What character types do you prefer? (select atleast 1): numerical");
@@ -108,10 +116,11 @@ let passwordLength="";
             preferLow= confirm("What character types do you prefer? (select atleast 1): lowercase");
             preferUpper= confirm("What character types do you prefer?(select atleast 1): uppercase");
             preferSpesh= confirm("What character types do you prefer? (select atleast 1): 'special' characters");
+          
     }
    }
    //define userpreferences variable by combining all the preferences taken from confirm messages.
-   function getOptions(){
+  //  function getOptions(){
     if (preferLow){
       userPreferences= userPreferences.concat(lowerCasedCharacters);
     }
@@ -124,17 +133,44 @@ let passwordLength="";
     if (preferSpesh){
       userPreferences= userPreferences.concat(specialCharacters);
     }
+  }
+// }
+function generatePassword(){
+  let possiblePassword= userPreferences.passwordLength;
+  // let openOptions= getPreferences();
+  //for loop to iterate randomly through userpreferences, constrained by passwordlegnth.
+    for (var i= 0; i < possiblePassword; i++ ){
+      let randomSelection= getRandom(possiblePassword);
+      password.push(randomSelection);
     }
-    //function to combine prefrences recorded, with passwordlength and create final array from iterating through userpreferences, constrained by passwordlegnth.
-    let finalPassword=[]
-    function generatePassword(){
-      for (var i= 0; i < passwordLength; i++ ){
-        let finalSelection= userPreferences(Math.floor(Math.random(userPreferences)));
-        finalPassword.push(finalSelection)
-      }
-      return finalPassword.join("");
+    return password.join(" ");
+}
 
-    }
+  //function for  loping through array to form final randomly generated password to display on screen
+function getRandom(arr){
+  return arr [Math.floor(Math.random()*arr.length)]
+}
+
+  // let openOptions= getPreferences();
+  //   //for loop to iterate randomly through userpreferences, constrained by passwordlegnth.
+  //     for (var i= 0; i < possiblePassword; i++ ){
+  //       let randomSelection= getRandom(possiblePassword);
+  //       password.push(randomSelection);
+  //     }
+  //     return password.join("");
+
+
+// Get references to the #generate element
+var generateBtn = document.querySelector('#generate');
+
+// // Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector('#password');
+  passwordText.value = password;
+}
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword)
 
 // global varibales declared, so function has something to fill
 // let passwordLength="";
@@ -197,13 +233,13 @@ let passwordLength="";
 // //        //string that joins elements in array into a single string without commas etc.
   
 // Get references to the #generate element
-var generateBtn = document.querySelector('#generate');
+// var generateBtn = document.querySelector('#generate');
 
-// // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-  passwordText.value = password;
-}
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword)
+// // // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector('#password');
+//   passwordText.value = password;
+// }
+// // Add event listener to generate button
+// generateBtn.addEventListener('click', writePassword)
