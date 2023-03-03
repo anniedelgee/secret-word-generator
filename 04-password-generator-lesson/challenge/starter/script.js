@@ -87,8 +87,6 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
-
 var length;
 var lowercase;
 var uppercase;
