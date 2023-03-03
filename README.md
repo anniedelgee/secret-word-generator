@@ -11,10 +11,9 @@ This exercise was required me to use prompts & confirms, loops, functions and ev
 
 To use this application: 
   1. Open deployed webpage
-  2. click "Generate me an 0dd one"
-  3. Specify a password length 
-  4. click "ok" or "cancel" to input your preferences for character types: upper or lower case, numerical or special characters
-  5. be presented with your strange combination of characters that a human could never guess.
+  2. Specify a password length 
+  3. Click "ok" or "cancel" to input your preferences for character types: upper or lower case, numerical or special characters
+  4. Be presented with your strange combination of characters that a human could never guess.
 
 
   
